@@ -1,5 +1,5 @@
-# React/Redux/Router Starter Project
+# Evalyn Ledezma's React Portfolio
 
-> Provided for the students of the [Bottega Code School](https://bottega.tech/)
+> Showcasae of react skill and knowledge
 
-*Fork from [es6-webpack2-starter](https://github.com/micooz/es6-webpack2-starter)*
+<!-- *Fork from [es6-webpack2-starter](https://github.com/micooz/es6-webpack2-starter)* -->
