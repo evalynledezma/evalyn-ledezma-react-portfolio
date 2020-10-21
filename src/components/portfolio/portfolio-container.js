@@ -23,17 +23,6 @@ export default class PortfolioContainer extends Component {
 
     }
     
-    getPortfolioItems() {
-        axios
-          .get("https://evalynledezma.devcamp.space/portfolio/portfolio_items")
-          .then(response => {
-            console.log("response data", response);
-          })
-          .catch(error => {
-            console.log(error);
-          });
-      }
-
     handleFilter(filter) {
         this.setState({
             data: this.state.data.filter(item => {
@@ -42,18 +31,35 @@ export default class PortfolioContainer extends Component {
         });
     }
 
+    getPortfolioItems() {
+        axios
+          .get("https://evalynledezma.devcamp.space/portfolio/portfolio_items")
+          .then(response => {
+            this.setState({
+                data: response.data.portfolio_items
+            })
+          })
+          .catch(error => {
+            console.log(error);
+          });
+    }
+
     PortfolioItems() {
         return this.state.data.map(item => {
-            return <PortfolioItem title={item.title} url={"google.com"} slug={item.slug}/>;
+            return (
+                <PortfolioItem title={item.name} url={item.url} slug={item.id}/>
+            );
         });
+    }
+
+    componentDidMount() {
+        this.getPortfolioItems();
     }
 
     render() {
         if (this.state.isLoading) {
             return <div>Loading...</div>
         }
-        
-        this.getPortfolioItems();
 
         return (
             <div>
