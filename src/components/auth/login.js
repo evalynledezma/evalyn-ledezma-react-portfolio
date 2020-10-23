@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 
 class Login extends Component {
@@ -19,7 +20,18 @@ class Login extends Component {
     }
 
     handleSubmit(event) {
-        console.log("Handle submit", this.state.email, this.state.password);
+        axios.post("https://api.devcamp.space/sessions",
+        {
+            client: {
+                email: this.state.email, 
+                password: this.state.password
+            }
+        },
+        {withCredentials: true }
+        .then(response => {
+            console.log("response", response);
+        })
+    )
         event.preventDefault();
     }
 
@@ -27,8 +39,8 @@ class Login extends Component {
         return ( 
             <div>
                 <h1>LOGIN TO ACCESS YOUR DASHBOARD</h1>
-                
-                <form on Submit={this.handleSubmit}>
+
+                <form onSubmit={this.handleSubmit}>
                     <input 
                         type="email"
                         name="email"
