@@ -19,17 +19,15 @@ class Login extends Component {
     }
 
     handleSubmit(event) {
-        console.log("Handle submit", event);
+        console.log("Handle submit", this.state.email, this.state.password);
+        event.preventDefault();
     }
+
     render() { 
         return ( 
             <div>
                 <h1>LOGIN TO ACCESS YOUR DASHBOARD</h1>
-
-                <h2>{this.state.email}</h2>
-                <h2>{this.state.password}</h2>
-
-
+                
                 <form on Submit={this.handleSubmit}>
                     <input 
                         type="email"
