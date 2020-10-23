@@ -6,7 +6,7 @@ export default class PortfolioItem extends Component {
     super(props);
 
     this.state = {
-      portfolioItemClass: ""
+      portfolioItemClass: "",
     };
   }
 
@@ -31,7 +31,7 @@ export default class PortfolioItem extends Component {
             "portfolio-img-background " + this.state.portfolioItemClass
           }
           style={{
-            backgroundImage: "url(" + thumb_image_url + ")"
+            backgroundImage: "url(" + thumb_image_url + ")",
           }}
         />
 
