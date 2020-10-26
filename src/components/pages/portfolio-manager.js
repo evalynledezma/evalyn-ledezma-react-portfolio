@@ -21,20 +21,23 @@ export default class PortfolioManager extends Component {
   }
 
   handleSuccessfulFormSubmission(portfolioItem) {
-    // TODO
-    // update portfolio items state
-    // add pi to list
+    this.setState({
+      portfolioItems: [portfolioItem].concat(this.state.portfolioItems),
+    });
   }
 
   handleSuccessfulFormSubmissionError(error) {
-    console.log("handleFormSubmission Error error", error);
+    console.log("handleFormSubmissionError error", error);
   }
 
   getPortfolioItems() {
     axios
-      .get("https://evalynledezma.devcamp.space/portfolio/portfolio_items", {
-        withCredentials: true,
-      })
+      .get(
+        "https://evalynledezma.devcamp.space/portfolio/portfolio_items?order_by_=created_at&direction=desc",
+        {
+          withCredentials: true,
+        }
+      )
       .then((response) => {
         this.setState({
           portfolioItems: [...response.data.portfolio_items],
