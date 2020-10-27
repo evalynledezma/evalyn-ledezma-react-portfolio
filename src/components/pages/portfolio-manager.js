@@ -33,7 +33,7 @@ export default class PortfolioManager extends Component {
   getPortfolioItems() {
     axios
       .get(
-        "https://evalynledezma.devcamp.space/portfolio/portfolio_items?order_by_=created_at&direction=desc",
+        "https://evalynledezma.devcamp.space/portfolio/portfolio_items?order_by=created_at&direction=desc",
         {
           withCredentials: true,
         }
