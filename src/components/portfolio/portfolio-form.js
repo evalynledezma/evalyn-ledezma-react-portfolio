@@ -137,7 +137,11 @@ export default class PortfolioForm extends Component {
       withCredentials: true,
     })
       .then((response) => {
-        this.props.handleSuccessfulFormSubmission(response.data.portfolio_item);
+        if (this.state.editMode) {
+          this.props.handleEditFormSubmission();
+        } else {
+          this.props.handleNewFormSubmission(response.data.portfolio_item);
+        }
 
         this.setState({
           name: "",
@@ -148,6 +152,10 @@ export default class PortfolioForm extends Component {
           thumb_image: "",
           banner_image: "",
           logo: "",
+          editMode: false,
+          apiUrl:
+            "https://evalynledezma.devcamp.space/portfolio/portfolio_items",
+          apiAction: "post",
         });
 
         [this.thumbRef, this.bannerRef, this.logoRef].forEach((ref) => {
