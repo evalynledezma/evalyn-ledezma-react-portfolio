@@ -9,6 +9,7 @@ export default class BlogForm extends Component {
     this.state = {
       title: "",
       blog_status: "",
+      content: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
