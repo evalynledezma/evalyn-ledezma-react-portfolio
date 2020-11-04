@@ -3,6 +3,7 @@ import { EditorState, convertToRaw } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import draftToHtml from "draftjs-to-html";
 import htmlToDraft from "html-to-draftjs";
+import { call } from "file-loader";
 
 class RichTextEditor extends Component {
   constructor(props) {
@@ -13,6 +14,8 @@ class RichTextEditor extends Component {
     };
 
     this.onEditorStateChange = this.onEditorStateChange.bind(this);
+    this.getBase64 = this.getBase64.bind(this);
+    this.uploadFile = this.uploadFile.bind(this);
   }
 
   onEditorStateChange(editorState) {
@@ -22,6 +25,13 @@ class RichTextEditor extends Component {
         draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()))
       )
     );
+  }
+
+  getBase64(file, callback) {
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => callback(reader.result);
+    reader.onerror = (error) => {};
   }
 
   uploadFile(file) {
