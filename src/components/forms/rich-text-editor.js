@@ -3,7 +3,6 @@ import { EditorState, convertToRaw } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import draftToHtml from "draftjs-to-html";
 import htmlToDraft from "html-to-draftjs";
-import { call } from "file-loader";
 
 class RichTextEditor extends Component {
   constructor(props) {
@@ -35,7 +34,9 @@ class RichTextEditor extends Component {
   }
 
   uploadFile(file) {
-    console.log("upload file", file);
+    return new Promise((resolve, reject) => {
+      this.getBase64(file, (data) => resolve({ data: { link: data } }));
+    });
   }
 
   render() {
