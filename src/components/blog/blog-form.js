@@ -88,9 +88,7 @@ export default class BlogForm extends Component {
           featured_image: "",
         });
 
-        this.props.handleSuccessfullFormSubmission(
-          response.data.portfolio_blog
-        );
+        this.props.handleSuccessfulFormSubmission(response.data.portfolio_blog);
       })
       .catch((error) => {
         console.log("handleSubmit for blog error", error);
