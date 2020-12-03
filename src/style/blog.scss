@@ -2,7 +2,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-    position: relative;
+  position: relative;
+
+  .admin-blog-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      margin-left: 15px;
+      cursor: pointer;
+    }
+  }
 
   .new-blog-link {
     position: fixed;
@@ -44,7 +55,7 @@
 
     .featured-image-wrapper {
       img {
-        margin: 15px 8px;
+        margin: 15px 0px;
         width: 100%;
         height: 350px;
         border-radius: 5px;
