@@ -10,11 +10,11 @@
     .right-side a {
         margin-left: 15px;
         cursor: pointer;
-        color: $teal;
+        color: $lightgrey;
         transition: ease-in-out;
 
         &:hover {
-            color: $dark-teal;
+            color: $darkgrey;
         }
     }
 
